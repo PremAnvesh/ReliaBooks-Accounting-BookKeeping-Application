@@ -1,0 +1,124 @@
+<form [formGroup]="expense" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="900px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <h2>Expense Details</h2> 
+                <mat-form-field appearance="outline">
+                    <mat-label>Expense Type</mat-label>
+                    <mat-select formControlName = "expenseType">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of expenseType" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>Amount</mat-label>
+                    <input matInput type="number" placeholder="0" formControlName = "amount">
+                    <span matPrefix>₹&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Due Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Asset Type</mat-label>
+                    <mat-select formControlName = "assetType">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of assetType" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Transaction Type</mat-label>
+                    <mat-select formControlName = "transactionType">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of transaction" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Financial Statement Type</mat-label>
+                    <mat-select formControlName = "financialType">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of finStatement" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter Notes</mat-label>
+                    <textarea matInput placeholder="Ex. Describe the Expense" formControlName="notes"></textarea>
+                </mat-form-field>
+
+
+            </div>
+           
+
+        </mat-grid-tile>
+            
+        <mat-grid-tile>
+            
+            <div class="controles-container">
+                <h2>Payment Details</h2> 
+                <mat-form-field appearance="outline">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName = "status">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of status" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Payment Type</mat-label>
+                    <mat-select formControlName = "paymentType">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor = "let option of paymentType" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-divider></mat-divider>
+
+                <h2>Taxes</h2> 
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>SGST</mat-label>
+                    <input matInput type="number" placeholder="0" formControlName = "sgst">
+                    <span matPrefix>₹&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>CGST</mat-label>
+                    <input matInput type="number" placeholder="0" formControlName = "cgst">
+                    <span matPrefix>₹&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>IGST</mat-label>
+                    <input matInput type="number" placeholder="0" formControlName = "igst">
+                    <span matPrefix>₹&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Supplier Name</mat-label>
+                    <input matInput placeholder="Ex. Gupta Electricals" formControlName="supplierName">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">Update Expense Details</button>
+                <button mat-raised-button color="warn" (click)="onClear()">Clear Details</button>
+            </div>
+        </mat-grid-tile>
+        
+    </mat-grid-list>
+
+    
+</form>

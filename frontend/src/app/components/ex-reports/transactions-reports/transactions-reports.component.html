@@ -1,0 +1,12 @@
+<h2 style="text-align: center;">Transactions Report</h2>
+<mat-divider></mat-divider>
+<p-chart type="bar" [data]="basicData" [options]="chartOptions" width="40vw" height="50vh"></p-chart>
+<mat-divider></mat-divider>
+<br>
+<h3 style="text-align: center;">Total Amount flow : ₹ {{totalAmount}}/-</h3>
+<h3 style="text-align: center;">Amount Credited to A/C : ₹ {{creditAmount}}/-</h3>
+<h3 style="text-align: center;">Amount Debited From A/C : ₹ {{debitAmount}}/-</h3>
+<h3 style="text-align: center;">Amount Left : ₹ <span   [ngClass]="{
+    'green-class': condition == true,
+    'red-class': condition == false
+  }">{{amountLeft}}/-</span></h3>

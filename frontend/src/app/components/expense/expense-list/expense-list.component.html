@@ -1,0 +1,111 @@
+<div class="card">
+    <div>
+        <h2>
+            Expenses List
+        </h2>
+    </div>
+    <p-table #dt [value]="expenses" [(selection)]="selectedCustomers" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+            [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"
+            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [filterDelay]="0" [globalFilterFields]="['date','expenseType','amount','supplierName','status']" id="excel-table">
+            <ng-template pTemplate="caption">
+                <div class="table-header">
+                    <button pButton pRipple type="button" 
+                    label="Export Data To Excel"
+                    icon="pi pi-file-excel" 
+                    class="p-button-rounded p-button-success"
+                    (click)="exportToExcel()">
+                </button>
+                <br>
+                <br>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'startsWith')" placeholder="Global Search" />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>
+                    <th pSortableColumn="expenseType">Expense Type <p-sortIcon field="expense.expenseType"></p-sortIcon></th>
+                    <th pSortableColumn="amount">Total Expense <p-sortIcon field="expense.amount"></p-sortIcon></th>
+                    <th pSortableColumn="supplierName">Supplier Name <p-sortIcon field="expense.supplierName"></p-sortIcon></th>
+                    <th pSortableColumn="status">Status <p-sortIcon field="expense.status"></p-sortIcon></th>
+                    <th style="width: 8rem"></th>
+                    <th style="width: 8rem"></th>
+                </tr>
+                <tr>
+                    <th>
+                       
+                    </th>
+
+                    <th>
+                        <input pInputText type="text" (input)="dt.filter($any($event.target).value, 'expenseType', 'startsWith')" placeholder="Search by Expense Type" class="p-column-filter">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="dt.filter($any($event.target).value, 'amount', 'startsWith')" placeholder="Search by Cost" class="p-column-filter">
+                    </th>
+                    <th>
+                            <input pInputText type="text" (input)="dt.filter($any($event.target).value, 'supplierName', 'startsWith')" placeholder="Search by Supplier Name" class="p-column-filter">
+                    </th>
+                    <th>
+                        <p-dropdown [options]="statuses" (onChange)="dt.filter($event.value, 'status', 'equals')" styleClass="p-column-filter" placeholder="Select a Status" [showClear]="true">
+                            <ng-template let-option pTemplate="item">
+                                <span [class]="'customer-badge status-' + option.value">&#123;&#123;option.label&#125;&#125;</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-expense>
+                <tr class="p-selectable-row">
+                    <td>
+                        <span class="p-column-title">Date</span>
+                        {{expense.date}}
+                    </td>
+
+                    <td>
+                        <span class="p-column-title">Expense Type</span>
+                        {{expense.expenseType}}
+                    </td>
+
+                    <td>
+                        <span class="p-column-title">Total Amount</span>
+                        <span class ="image-text">{{expense.amount}}</span>
+                    </td>
+                    <td>
+                        <span class="p-column-title">Supplier Name</span>
+                        {{expense.supplierName}}
+                    </td>
+                    <td>
+                        <span class="p-column-title">Status</span>
+                        <span [class]="'customer-badge status-' + expense.customer ">{{expense.status}}</span>
+                    </td>
+                    <td style="text-align: center">
+                        <button pButton type="button" 
+                        class="p-button-outlined p-button-success"
+                        label="Update" 
+                        icon="pi pi-undo"
+                        (click)="onUpdate(expense)">
+                        </button>
+                    </td>
+
+                    <td style="text-align: center">
+                        <button pButton type="button" 
+                        class="p-button-outlined p-button-danger" 
+                        label="Delete"
+                        icon="pi pi-times"
+                        (click)="onDelete(expense.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No Expenses found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+</div>

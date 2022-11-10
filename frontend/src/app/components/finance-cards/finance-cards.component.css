@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+
+h1{
+    font-size: 3rem;
+    padding : 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 5px 4px grey;
+}
+
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.container{
+    position: relative;
+    width : 1150px;
+    padding : 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container .card{
+    position: relative;
+    width : 310px;
+    height: 440px;
+    background: #fff;
+    margin : 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+
+.container:hover .card{
+    transform: scale(0.9);
+    opacity: 0.5;
+}
+
+.container .card:hover{
+    filter : blur(0px);
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.container .card .circle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    clip-path: circle(180px at center 0);
+    text-align: center;
+}
+
+.container .card .circle h2{
+    color: #fff;
+    font-size: 4.5em;
+    padding : 60px 0;
+}
+
+.container .card .content{
+    position: absolute;
+    bottom: 10px;
+    padding: 3px;
+    page-break-after: 20px;
+    text-align: center;
+}
+
+.container .card .content p{
+    color : #666;
+} 
+
+.container .card .content button{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    color : #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.container .card .content a :hover{
+    cursor:pointer;
+}
+
+.container .card:nth-child(1) .circle,
+.container .card:nth-child(1) .content button{
+    background: #3f50f0;
+
+}
+
+.container .card:nth-child(2) .circle,
+.container .card:nth-child(2) .content button{
+    background: #da2268;
+
+}
+
+.container .card:nth-child(3) .circle,
+.container .card:nth-child(3) .content button{
+    background: #bb02ff;
+
+}
+
+.container .card:nth-child(4) .circle,
+.container .card:nth-child(4) .content button{
+    background: #25cd25;
+
+}

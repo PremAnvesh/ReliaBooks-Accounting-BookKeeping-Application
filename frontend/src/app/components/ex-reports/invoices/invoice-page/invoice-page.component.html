@@ -1,0 +1,90 @@
+<div class="invoice-box" id="invoiceComp" #invoiceComp>
+			<table>
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<img src="/assets/reliaBooksLogo2.png" alt="Company logo" style="width: 100%; max-width: 300px" />
+								</td>
+
+								<td>
+									Invoice #: {{invNumber}}<br />
+									Created: {{retrievedData.date}}<br />
+									Due: {{retrievedData.date}}
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									{{retrievedData.notes}}
+								</td>
+
+								<td>
+									{{retrievedData.supplierName}}<br />
+									{{userName}}<br />
+									{{email}}
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Payment Method</td>
+					<td>Bill Number#</td>
+				</tr>
+
+				<tr class="details">
+					<td>{{retrievedData.paymentType}}</td>
+					<td>{{retrievedData.id}}</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Item</td>
+					<td>Price</td>
+				</tr>
+
+				<tr class="item">
+					<td>{{retrievedData.expenseType}}</td>
+					<td>₹{{actualAmount}}/-</td>
+				</tr>
+
+				<tr class="item">
+					<td>CGST</td>
+					<td>₹{{retrievedData.cgst}}/-</td>
+				</tr>
+
+				<tr class="item">
+					<td>SGST</td>
+					<td>₹{{retrievedData.sgst}}/-</td>
+				</tr>
+
+                <tr class="item last">
+					<td>IGST</td>
+					<td>₹{{retrievedData.igst}}/-</td>
+				</tr>
+
+				<tr class="total">
+					<td></td>
+					<td>Total: ₹{{retrievedData.amount}}</td>
+				</tr>
+			</table>
+</div>
+<br>
+<br>
+<button
+pButton pRipple type="button" 
+label="Generate PDF"
+icon ="pi pi-save"
+class="p-button-rounded p-button-info"
+(click)="generatePDF()"
+style="display: flex; float : right; margin-bottom: 8px; margin-right: 8px;"
+></button>
+

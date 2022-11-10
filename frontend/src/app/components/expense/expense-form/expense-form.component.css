@@ -1,0 +1,23 @@
+.controles-container{
+    width: 100%;
+    padding : 5%;
+}
+
+.controles-container > *{
+    width: 100%;
+}
+
+mat-label{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 1.6rem;
+    font-family :Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+
+input{
+    font-size: 1.1rem;
+}
