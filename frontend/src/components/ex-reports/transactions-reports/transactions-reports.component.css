@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+h2{
+    font-size: 2.5rem;
+    padding : 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 5px 4px grey;
+}
+
+h3{
+    font-size: 1.2rem;
+    font-family: 'Signika Negative', sans-serif;
+    font-weight: 600;
+}
+.green-class{
+    color: green;
+}
+
+.red-class{
+    color: red;
+}
+

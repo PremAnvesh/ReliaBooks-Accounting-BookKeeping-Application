@@ -1,0 +1,60 @@
+<p-card header="Transaction Details" [style]="{width: '660px'}" styleClass="p-card-shadow" class="black">
+    <ng-template pTemplate="header">
+        <img alt="Card" src="/assets/journalBG2.png">
+    </ng-template>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Credit</th>
+            <th scope="col">Debit</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="condition">
+          <tr>
+            <th scope="row">{{retrievedData.date}}</th>
+            <td>Paid From : {{retrievedData.paymentType}}</td>
+            <td>₹{{retrievedData.amount}}/-</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Paid To : {{businessAccount}} Account</td>
+            <td></td>
+            <td>₹{{retrievedData.amount}}/-</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>({{retrievedData.notes}})</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+
+        <tbody *ngIf="!condition">
+          <tr>
+            <th scope="row">{{retrievedData.date}}</th>
+            <td>Received From : {{businessAccount}} Account</td>
+            <td>₹{{retrievedData.amount}}/-</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>Received To : {{retrievedData.paymentType}}</td>
+            <td></td>
+            <td>₹{{retrievedData.amount}}/-</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>({{retrievedData.notes}})</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+
+      </table>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button" label="Close" (click)="onClose()" class="p-button-raised p-button-danger"></button>
+    </ng-template>
+</p-card>

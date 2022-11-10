@@ -1,0 +1,11 @@
+<h2 style="text-align: center;">Payment Report</h2>
+<mat-divider></mat-divider>
+<p-chart type="doughnut" [data]="data" [options]="chartOptions" width="40vw" height="50vh"></p-chart>
+<mat-divider></mat-divider>
+<br>
+<h3 style="text-align: center;">Total Amount Flow : ₹ {{totalAmount}}/-</h3>
+<h3 style="text-align: center;">Payment Made Using Credit Card : ₹ {{creditAmount}}/-</h3>
+<h3 style="text-align: center;">Payment Made Using Debit Card : ₹ {{debitAmount}}/-</h3>
+<h3 style="text-align: center;">Payment Made Using UPI : ₹ {{upiAmount}}/-</h3>
+<h3 style="text-align: center;">Payment Made Using Cash : ₹ {{cashAmount}}/-</h3>
+<h3 style="text-align: center;">Payment Made Using NEFT : ₹ {{neftAmount}}/-</h3>

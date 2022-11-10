@@ -1,0 +1,21 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.gradient-custom {
+    /* background: url('https://i.ibb.co/5rGdsGt/my-img.jpg'); */
+    background: url('/assets/my-img.jpg');
+    background-size: cover;
+    }
+
+img{
+    margin-top: 50px;
+    border-radius: 20%;
+}
+
+h6{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.inMiddle{
+    margin-top: 130px;
+}

@@ -1,0 +1,13 @@
+.card {
+    background: url("/assets/mainBG.jpg");
+    border: 1px solid #dfe7ef;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+}
+h2{
+    font-size: 3rem;
+    padding : 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 5px 4px grey;
+}

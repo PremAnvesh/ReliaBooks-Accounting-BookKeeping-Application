@@ -1,0 +1,58 @@
+<h2>
+    Journals
+</h2>
+<div class="card">
+    <div>
+    </div>
+    <p-table #dt [value]="expenses" [(selection)]="selectedCustomers" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+            [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"
+            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [filterDelay]="0" [globalFilterFields]="['date','notes']">
+            <ng-template pTemplate="caption">
+                <div class="table-header">
+                    List of Journals
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Global Search" />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>
+                    <th pSortableColumn="notes">Particulars <p-sortIcon field="notes"></p-sortIcon></th>
+                    <th style="width: 8rem"></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-expenses>
+                <tr class="p-selectable-row">
+                    <td>
+                        <span class="p-column-title">Date</span>
+                        {{expenses.date}}
+                    </td>
+                    <td>
+                        <span class="p-column-title">Expense Type</span>
+                        {{expenses.notes}}
+                    </td>
+                    <td style="text-align: center">
+                        <button pButton pRipple type="button" 
+                                label="Details" 
+                                class="p-button-outlined p-button-secondary" 
+                                icon="pi pi-angle-up"
+                                (click)="onDetails(expenses)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">Journal Not Listed</td>
+                </tr>
+            </ng-template>
+        </p-table>
+</div>
